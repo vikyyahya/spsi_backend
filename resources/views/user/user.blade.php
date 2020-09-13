@@ -21,7 +21,7 @@
     <i class="fas fa-file-excel"></i> Import Excel
 </button> --}}
 
-<br/>
+<br />
 
 
 
@@ -29,8 +29,8 @@
     <i class="fa fa-plus nav-icon"></i>
 </a>
 
-<br/>
-<br/>
+<br />
+<br />
 
 <div class="card m-3" style="border-top: 2px solid">
 
@@ -40,16 +40,18 @@
 
     <div class="card-body">
         <table class="table table-striped table-bordered" id="myTable">
-            <thead >
+            <thead>
                 <tr>
                     <th class="text-center">No</th>
                     <th class="text-center">Nama</th>
-                    <th class="text-center">Email</th>
-                    <th class="text-center">Level</th>
-                    <th class="text-center">Nama Perusahaan</th>
-                    <th class="text-center">Produk</th>
-                    <th class="text-center">Alamat Perusahaan</th>
-                    <th class="text-center">No Telepon</th>
+                    <th class="text-center">Nik</th>
+                    <th class="text-center">Plant</th>
+                    <th class="text-center">Bagian</th>
+                    <th class="text-center">Tempat lahir</th>
+                    <th class="text-center">Tanggal lahir</th>
+                    <th class="text-center">Jenis kelamin</th>
+                    <th class="text-center">Agama</th>
+                    <th class="text-center">Alamat</th>
                     <th class="text-center" width="8%">Action</th>
                 </tr>
             </thead>
@@ -58,25 +60,25 @@
                 <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$s->name}}</td>
-                    <td>{{$s->email}}</td>                 
-                    <td>{{$s->levels->nama_level ?? '' }}</td>                 
-                    <td>{{$s->nama_perusahaan}}</td>                 
-                    <td>{{$s->produk}}</td> 
-                    <td>{{$s->alamat_perusahaan}}</td>                 
-                    <td>{{$s->no_telp}}</td>                 
+                    <td>{{$s->email}}</td>
+                    <td>{{$s->levels->nama_level ?? '' }}</td>
+                    <td>{{$s->nama_perusahaan}}</td>
+                    <td>{{$s->produk}}</td>
+                    <td>{{$s->alamat_perusahaan}}</td>
+                    <td>{{$s->no_telp}}</td>
+                    <td>{{$s->no_telp}}</td>
+                    <td>{{$s->no_telp}}</td>
                     <td>
                         <div class="btn-group">
 
                             <!-- URL::to('/admin/category/detail.id='.$cate-id -->
-                           
 
-                            <a href="/edituser/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip"
-                                data-placement="bottom" title="Edit">
+
+                            <a href="/edituser/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip" data-placement="bottom" title="Edit">
                                 <i class="fa fa-edit nav-icon"></i>
                             </a>
 
-                            <a onClick="return confirm('Yakin ingin menghapus data?')" href="/user/{{$s->id}}/delete"
-                                class="btn btn btn-danger btn-sm">
+                            <a onClick="return confirm('Yakin ingin menghapus data?')" href="/user/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
                                 <i class="fa fa-trash nav-icon"></i>
                             </a>
 

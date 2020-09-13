@@ -16,12 +16,11 @@ class UserController extends Controller
         return view('user.user', ['users' => $users]);
     }
 
-    public function add_user()
+    public function adduser()
     {
         $users = User::all();
         $level = Level::pluck('nama_level', 'id');
 
-        return view('user.addUser', ['users' => $users,'level' => $level]);
+        return view('user.addUser', ['users' => $users, 'level' => $level]);
     }
-
 }
