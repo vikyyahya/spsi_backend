@@ -43,47 +43,47 @@
 
 					<div class="form-group">
 						<label>Level</label>
-						{{ Form::select('level', $level, null, ['placeholder' => 'Pilih user level...', 'required', 'class' => 'form-control']) }}
+						{{ Form::select('id_level', $level, null, ['placeholder' => 'Pilih user level...', 'required', 'class' => 'form-control']) }}
 					</div>
 
 					<div class="form-group">
 						<label>Nik</label>
-						<input type="text" name="nama_perusahaan" value="{{ old('nama_perusahaan')}}" placeholder="" class="form-control" required autofocus>
+						<input type="text" name="nik" value="{{ old('nama_perusahaan')}}" placeholder="" class="form-control" required autofocus>
 					</div>
 
 					<div class="form-group">
 						<label>Plant</label>
-						<input type="text" name="produk" value="{{ old('produk')}}" placeholder="" class="form-control" autofocus>
+						<input type="text" name="plant" value="{{ old('produk')}}" placeholder="" class="form-control" autofocus>
 					</div>
 
 					<div class="form-group">
 						<label>Bagian</label>
-						<input type="text" name="no_telp" value="{{ old('no_telp')}}" placeholder="" class="form-control" autofocus>
+						<input type="text" name="bagian" value="{{ old('no_telp')}}" placeholder="" class="form-control" autofocus>
 					</div>
 
 					<div class="form-group">
-						<label>Tempat</label>
-						<input type="text" name="alamat_perusahaan" value="{{ old('alamat_perusahaan')}}" placeholder="" class="form-control" required autofocus>
+						<label>Tempat Lahir</label>
+						<input type="text" name="tempat_lahir" value="{{ old('alamat_perusahaan')}}" placeholder="" class="form-control" required autofocus>
 					</div>
 
 					<div class="form-group">
 						<label>Tanggal Lahir</label>
-						<input type="text" name="npwp" value="{{ old('npwp')}}" placeholder="" class="form-control" required autofocus>
+						<input type="date" name="tanggal_lahir" value="{{ old('npwp')}}" placeholder="" class="form-control" required autofocus>
 					</div>
 
 					<div class="form-group">
 						<label>Jenis Kelamin</label>
-						<input type="text" name="npwp" value="{{ old('npwp')}}" placeholder="" class="form-control" required autofocus>
+						<input type="text" name="jenis_kelamin" value="{{ old('npwp')}}" placeholder="" class="form-control" required autofocus>
 					</div>
 
 					<div class="form-group">
 						<label>Agama</label>
-						<input type="text" name="npwp" value="{{ old('npwp')}}" placeholder="" class="form-control" required autofocus>
+						<input type="text" name="agama" value="{{ old('npwp')}}" placeholder="" class="form-control" required autofocus>
 					</div>
 
 					<div class="form-group">
 						<label>Alamat</label>
-						<input type="text" name="npwp" value="{{ old('npwp')}}" placeholder="" class="form-control" required autofocus>
+						<input type="text" name="alamat" value="{{ old('npwp')}}" placeholder="" class="form-control" required autofocus>
 					</div>
 
 					<div class="card-footer">

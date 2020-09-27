@@ -8,7 +8,7 @@
 
 			@csrf
 
-			<div class="card" style="border-top: 3px solid">
+			<div class="card" style="">
 				<div class="card-header">
 					<h3 class="card-title">Edit User</h3>
 				</div>
@@ -33,42 +33,57 @@
 
 					<div class="form-group">
 						<label>Password</label>
-						<input type="password" name="password" required class="form-control">
-                    </div>
+						<input type="password" name="password" placeholder="" class="form-control">
+					</div>
 
 					<div class="form-group">
 						<label>Konfirmasi Password</label>
-						<input type="password" value="" name="syncpassword" required placeholder="" class="form-control">
+						<input type="password" name="syncpassword" placeholder="" class="form-control">
 					</div>
-                    
-                    <div class="form-group">
+
+					<div class="form-group">
 						<label>Level</label>
 						{{ Form::select('level', $level, $user->level, ['placeholder' => 'Pilih user level...', 'required', 'class' => 'form-control']) }}
 					</div>
 
 					<div class="form-group">
-						<label>Nama Perusahaan</label>
-						<input type="text" name="nama_perusahaan" value="{{$user->nama_perusahaan}}" placeholder="" class="form-control" required autofocus>
+						<label>Nik</label>
+						<input type="text" name="nama_perusahaan" value="{{$user->nik}}" placeholder="" class="form-control" required autofocus>
 					</div>
 
 					<div class="form-group">
-						<label>Produk</label>
-						<input type="text" name="produk" value="{{$user->produk}}" placeholder="" class="form-control" autofocus>
+						<label>Plant</label>
+						<input type="text" name="produk" value="{{$user->plant}}" placeholder="" class="form-control" autofocus>
 					</div>
 
 					<div class="form-group">
-						<label>No Telepon</label>
-						<input type="text" name="no_telp" value="{{$user->no_telp}}" placeholder="" class="form-control"  autofocus>
+						<label>Bagian</label>
+						<input type="text" name="no_telp" value="{{$user->bagian}}" placeholder="" class="form-control" autofocus>
 					</div>
 
 					<div class="form-group">
-						<label>Alamat Perusahaan</label>
-						<input type="text" name="alamat_perusahaan" value="{{$user->alamat_perusahaan}}" placeholder="" class="form-control" required autofocus>
+						<label>Tempat Lahir</label>
+						<input type="text" name="alamat_perusahaan" value="{{$user->tempat_lahir}}" placeholder="" class="form-control" required autofocus>
 					</div>
 
 					<div class="form-group">
-						<label>NPWP</label>
-						<input type="text" name="npwp" value="{{$user->npwp}}" placeholder="" class="form-control" required autofocus>
+						<label>Tanggal Lahir</label>
+						<input type="date" name="npwp" value="{{$user->tanggal_lahir}}" placeholder="" class="form-control" required autofocus>
+					</div>
+
+					<div class="form-group">
+						<label>Jenis Kelamin</label>
+						<input type="text" name="npwp" value="{{$user->jenis_kelamin}}" placeholder="" class="form-control" required autofocus>
+					</div>
+
+					<div class="form-group">
+						<label>Agama</label>
+						<input type="text" name="npwp" value="{{$user->agama}}" placeholder="" class="form-control" required autofocus>
+					</div>
+
+					<div class="form-group">
+						<label>Alamat</label>
+						<input type="text" name="npwp" value="{{$user->alamat}}" placeholder="" class="form-control" required autofocus>
 					</div>
 
 					<div class="card-footer">

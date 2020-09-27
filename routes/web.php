@@ -22,3 +22,13 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/users', 'UserController@user');
 Route::get('/adduser', 'UserController@adduser');
+Route::get('/edituser/{id}', 'UserController@editUser');
+Route::post('/upadateuser/{id}', 'UserController@update');
+Route::post('/createuser', 'UserController@create');
+
+//berita
+Route::get('/berita', 'BeritaController@index')->name('home');
+//kegiatan
+Route::get('/kegiatan', 'KegiatanController@index');
+//struktur organisasi
+Route::get('/struktur', 'StrukturController@index');
