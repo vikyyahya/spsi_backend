@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use Validator;
 
 
 class AuthController extends Controller
@@ -12,19 +13,42 @@ class AuthController extends Controller
     //
     public function register(Request $request)
     {
-        $validatedData = $request->validate([
+        $validatedData =  Validator::make($request->all(), [
             'name' => 'required|max:55',
+            'nik' => 'required',
+            'plant' => 'required',
+            'bagian' => 'required',
+            'tempat_lahir' => 'required',
+            'jenis_kelamin' => 'required',
+            'agama' => 'required',
+            'alamat' => 'required',
             'email' => 'email|required|unique:users',
-            'password' => 'required|confirmed'
+            'password' => 'required',
         ]);
 
-        $validatedData['password'] = bcrypt($request->password);
+        if ($validatedData->fails()) {
+            return response()->json(['error' => $validatedData->errors()], 401);
+        }
+        $request['password'] = bcrypt($request->password);
 
-        $user = User::create($validatedData);
+        // $user = User::create($validatedData);
+        $user = User::create([
+            'name' => $request['name'],
+            'nik' => $request['nik'],
+            'email' => $request['email'],
+            'password' => $request['password'],
+            'id_level' => $request['id_level'],
+            'plant' => $request['plant'],
+            'bagian' => $request['bagian'],
+            'tempat_lahir' => $request['tempat_lahir'],
+            'jenis_kelamin' => $request['jenis_kelamin'],
+            'agama' => $request['agama'],
+            'alamat' => $request['alamat'],
+        ]);
 
         $accessToken = $user->createToken('authToken')->accessToken;
 
-        return response([ 'user' => $user, 'access_token' => $accessToken]);
+        return response(['user' => $user, 'access_token' => $accessToken]);
     }
 
     public function login(Request $request)
@@ -40,7 +64,6 @@ class AuthController extends Controller
 
         $accessToken = auth()->user()->createToken('authToken')->accessToken;
 
-        return response(['user' => auth()->user(), 'success' => true ,'code' => 200,'access_token' => $accessToken]);
-
+        return response(['user' => auth()->user(), 'success' => true, 'code' => 200, 'access_token' => $accessToken]);
     }
 }
