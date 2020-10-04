@@ -19,6 +19,7 @@ class AuthController extends Controller
             'plant' => 'required',
             'bagian' => 'required',
             'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
             'jenis_kelamin' => 'required',
             'agama' => 'required',
             'alamat' => 'required',
@@ -32,15 +33,18 @@ class AuthController extends Controller
         $request['password'] = bcrypt($request->password);
 
         // $user = User::create($validatedData);
+        $date = date_create("2013-03-15 00:00:00");
+        $date = date_format($date, "YYYY-MM-DD HH:mm:ss");
         $user = User::create([
             'name' => $request['name'],
             'nik' => $request['nik'],
             'email' => $request['email'],
             'password' => $request['password'],
-            'id_level' => $request['id_level'],
+            'id_level' => 2,
             'plant' => $request['plant'],
             'bagian' => $request['bagian'],
-            'tempat_lahir' => $request['tempat_lahir'],
+            'tempat_lahir' => $date,
+            'tanggal_lahir' => "2013-03-15 00:00:00",
             'jenis_kelamin' => $request['jenis_kelamin'],
             'agama' => $request['agama'],
             'alamat' => $request['alamat'],
@@ -48,7 +52,7 @@ class AuthController extends Controller
 
         $accessToken = $user->createToken('authToken')->accessToken;
 
-        return response(['user' => $user, 'access_token' => $accessToken]);
+        return response(['user' => $user, 'access_token' => $accessToken, 'success' => true, 'code' => 200]);
     }
 
     public function login(Request $request)
