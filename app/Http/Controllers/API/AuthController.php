@@ -43,8 +43,8 @@ class AuthController extends Controller
             'id_level' => 2,
             'plant' => $request['plant'],
             'bagian' => $request['bagian'],
-            'tempat_lahir' => $date,
-            'tanggal_lahir' => "2013-03-15 00:00:00",
+            'tempat_lahir' => $request['tempat_lahir'],
+            'tanggal_lahir' => $request['tanggal_lahir'],
             'jenis_kelamin' => $request['jenis_kelamin'],
             'agama' => $request['agama'],
             'alamat' => $request['alamat'],
@@ -68,6 +68,9 @@ class AuthController extends Controller
 
         $accessToken = auth()->user()->createToken('authToken')->accessToken;
 
+        $user = auth()->user();
+        $user->api_token = $accessToken;
+        $user->save();
         return response(['user' => auth()->user(), 'success' => true, 'code' => 200, 'access_token' => $accessToken]);
     }
 }
