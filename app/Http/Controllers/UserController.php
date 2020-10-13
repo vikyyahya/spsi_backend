@@ -14,7 +14,7 @@ class UserController extends Controller
 
     public function user()
     {
-        $users = User::all();
+        $users = User::paginate(5);
         return view('user.user', ['users' => $users]);
     }
 
@@ -69,5 +69,11 @@ class UserController extends Controller
         // return $request;
         User::create($data);
         return redirect('/users')->with('sukses', 'Data Berhasil Di Input!');
+    }
+    public function delete($id)
+    {
+        $user = User::find($id);
+        $user->delete($user);
+        return redirect('/users')->with('sukses', 'Data berhasil dihapus!');
     }
 }

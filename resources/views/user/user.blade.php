@@ -59,7 +59,7 @@
             <tbody>
                 @foreach($users ?? '' as $s)
                 <tr>
-                    <td>{{$loop->iteration}}</td>
+                    <td>{{ ($users->currentpage()-1) * $users->perpage() + $loop->index + 1 }}</td>
                     <td>{{$s->name}}</td>
                     <td>{{$s->nik}}</td>
                     <td>{{$s->status}}</td>
@@ -91,6 +91,11 @@
                 @endforeach
             </tbody>
         </table>
+    </div>
+    <div class="card-footer clearfix">
+        <ul class="pagination pagination-sm m-0 float-right">
+            {{$users->links()}}
+        </ul>
     </div>
 </div>
 

@@ -25,7 +25,7 @@
 
 
 
-<a href="#" class="btn btn-primary ml-3">
+<a href="/tambahberita" class="btn btn-primary ml-3">
     <i class="fa fa-plus nav-icon"></i>
 </a>
 
