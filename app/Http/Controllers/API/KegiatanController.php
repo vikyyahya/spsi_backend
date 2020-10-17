@@ -17,6 +17,6 @@ class KegiatanController extends Controller
         // $user = User::find($request->id);
         $kegiatan = Kegiatan::all();
 
-        return response(['kegiatan' => $kegiatan, 'success' => true, 'code' => 200]);
+        return response(['berita' => $kegiatan, 'success' => true, 'code' => 200]);
     }
 }

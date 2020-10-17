@@ -35,6 +35,7 @@ class AuthController extends Controller
         // $user = User::create($validatedData);
         $date = date_create("2013-03-15 00:00:00");
         $date = date_format($date, "YYYY-MM-DD HH:mm:ss");
+        $date = $request['tanggal_lahir'] . " 00:00:00";
         $user = User::create([
             'name' => $request['name'],
             'nik' => $request['nik'],
@@ -44,7 +45,7 @@ class AuthController extends Controller
             'plant' => $request['plant'],
             'bagian' => $request['bagian'],
             'tempat_lahir' => $request['tempat_lahir'],
-            'tanggal_lahir' => $request['tanggal_lahir'],
+            'tanggal_lahir' => $date,
             'jenis_kelamin' => $request['jenis_kelamin'],
             'agama' => $request['agama'],
             'alamat' => $request['alamat'],

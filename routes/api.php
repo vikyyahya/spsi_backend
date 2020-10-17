@@ -24,5 +24,8 @@ Route::post('/login', 'Api\AuthController@login');
 Route::group(['middleware' => 'auth:api'], function () {
     Route::get('/get-berita', 'API\BeritaController@berita');
     Route::get('/get-profil', 'API\ProfileController@profile');
+    Route::get('/pengundurandiri', 'API\ProfileController@pengunduran');
+    Route::post('/update-profil', 'API\ProfileController@updateprofile');
     Route::get('/get-kegiatan', 'API\KegiatanController@kegiatan');
+    Route::get('/get-struktur', 'API\StrukturController@index');
 });
