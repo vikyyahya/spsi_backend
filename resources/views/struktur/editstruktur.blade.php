@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-md-12">
-        <form action="/updatestruktur" method="POST" enctype="multipart/form-data">
+        <form action="/updatestruktur/{{$struktur->id}}" method="POST" enctype="multipart/form-data">
 
             @csrf
 

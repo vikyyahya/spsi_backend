@@ -32,6 +32,11 @@
 					</div>
 
 					<div class="form-group">
+						<label>Status</label>
+						{{ Form::select('status', $status, $user->status, ['placeholder' => 'Pilih status ...', 'required', 'class' => 'form-control']) }}
+					</div>
+
+					<div class="form-group">
 						<label>Password</label>
 						<input type="password" name="password" placeholder="" class="form-control">
 					</div>
@@ -43,7 +48,7 @@
 
 					<div class="form-group">
 						<label>Level</label>
-						{{ Form::select('level', $level, $user->level, ['placeholder' => 'Pilih user level...', 'required', 'class' => 'form-control']) }}
+						{{ Form::select('level', $level, $user->id_level, ['placeholder' => 'Pilih user level...', 'required', 'class' => 'form-control']) }}
 					</div>
 
 					<div class="form-group">
@@ -68,22 +73,23 @@
 
 					<div class="form-group">
 						<label>Tanggal Lahir</label>
-						<input type="date" name="npwp" value="{{$user->tanggal_lahir}}" placeholder="{{$user->tanggal_lahir}}" class="form-control" required autofocus>
+						<input type="date" name="tanggal_lahir" value="{{$user->tanggal_lahir}}" class="form-control" required autofocus>
 					</div>
 
 					<div class="form-group">
 						<label>Jenis Kelamin</label>
-						<input type="text" name="npwp" value="{{$user->jenis_kelamin}}" placeholder="" class="form-control" required autofocus>
+
+						<input type="text" name="jenis_kelamin" value="{{$user->jenis_kelamin}}" placeholder="" class="form-control" required autofocus>
 					</div>
 
 					<div class="form-group">
 						<label>Agama</label>
-						<input type="text" name="npwp" value="{{$user->agama}}" placeholder="" class="form-control" required autofocus>
+						<input type="text" name="agama" value="{{$user->agama}}" placeholder="" class="form-control" required autofocus>
 					</div>
 
 					<div class="form-group">
 						<label>Alamat</label>
-						<input type="text" name="npwp" value="{{$user->alamat}}" placeholder="" class="form-control" required autofocus>
+						<input type="text" name="alamat" value="{{$user->alamat}}" placeholder="" class="form-control" required autofocus>
 					</div>
 
 					<div class="card-footer">

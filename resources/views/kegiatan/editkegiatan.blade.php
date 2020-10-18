@@ -4,13 +4,13 @@
 
 <div class="row">
     <div class="col-md-12">
-        <form action="/updateberita/{{$berita->id}}" method="POST" enctype="multipart/form-data">
+        <form action="/updatekegiatan/{{$kegiatan->id}}" method="POST" enctype="multipart/form-data">
 
             @csrf
 
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Update Informasi</h3>
+                    <h3 class="card-title">Update Kegiatan</h3>
                 </div>
 
                 <div class="card-body">
@@ -23,18 +23,18 @@
 
                     <div class="form-group">
                         <label>Title</label>
-                        <input type="text" name="title" value="{{$berita->title}}" placeholder="" class="form-control" required autofocus>
+                        <input type="text" name="title" value="{{$kegiatan->title}}" placeholder="" class="form-control" required autofocus>
                     </div>
 
                     <div class="form-group">
                         <label>Deskripsi</label>
-                        <input type="text" name="deskripsi" value="{{$berita->deskripsi}}" placeholder="" class="form-control">
+                        <input type="text" name="deskripsi" value="{{$kegiatan->deskripsi}}" placeholder="" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <label>Image</label>
                         <div class="col-2">
-                            <img src="{{asset ('uploads/'. $berita->image)}}" alt="I" class="image mb-1" style="width: 30rem;">
+                            <img src="{{asset ('uploads/'. $kegiatan->image)}}" alt="I" class="image mb-1" style="width: 30rem;">
                         </div>
                         <input type="file" name="file" class="form-control @error('image') is-invalid @enderror">
                         @error('image')

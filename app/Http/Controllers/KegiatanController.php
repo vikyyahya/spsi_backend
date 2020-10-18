@@ -21,6 +21,53 @@ class KegiatanController extends Controller
         return view('kegiatan.tambahkegiatan');
     }
 
+    public function editkegiatan($id)
+    {
+        $dok = Kegiatan::find($id);
+        return view('kegiatan.editkegiatan', ['kegiatan' => $dok]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'title' =>  'required|min:3',
+            'deskripsi' =>  'required',
+            'file' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+
+        $berita = Kegiatan::find($id);
+
+        $image = $request->file('file');
+        if ($image) {
+            $date_time = date("Y-m-d h:i:s a", time());
+            $fileName = Str::slug($request->title) . $date_time . '.' . $request->file->extension();
+            $fileName = str_replace(':', '', $fileName);
+            $fileName = str_replace(' ', '', $fileName);
+            $fileName = str_replace('-', '', $fileName);
+            // return $request;
+            $request->file->move(public_path('uploads'), $fileName);
+
+            $berita->title = $request->title;
+            $berita->deskripsi = $request->deskripsi;
+
+            $berita->image = $fileName;
+        } else {
+            $berita->title = $request->title;
+            $berita->deskripsi = $request->deskripsi;
+        }
+
+
+
+        if ($berita->save()) {
+            return redirect('/kegiatan')->with('message-success', 'Data berhasi di ubah!');
+        } else {
+            return redirect()->back()->with('message-danger', 'Data gagal di ubah!');
+        }
+    }
+
+
+
     public function create(Request $request)
     {
         // return $request;

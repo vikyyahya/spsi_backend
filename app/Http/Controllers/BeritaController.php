@@ -23,6 +23,53 @@ class BeritaController extends Controller
         return view('berita.tambahberita');
     }
 
+    public function editberita($id)
+    {
+        $dok = Berita::find($id);
+        return view('berita.editberita', ['berita' => $dok]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'title' =>  'required|min:3',
+            'deskripsi' =>  'required',
+            'file' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+
+        $berita = Berita::find($id);
+
+        $image = $request->file('file');
+        if ($image) {
+            $date_time = date("Y-m-d h:i:s a", time());
+            $fileName = Str::slug($request->title) . $date_time . '.' . $request->file->extension();
+            $fileName = str_replace(':', '', $fileName);
+            $fileName = str_replace(' ', '', $fileName);
+            $fileName = str_replace('-', '', $fileName);
+            // return $request;
+            $request->file->move(public_path('uploads'), $fileName);
+
+            $berita->title = $request->title;
+            $berita->deskripsi = $request->deskripsi;
+
+            $berita->image = $fileName;
+        } else {
+            $berita->title = $request->title;
+            $berita->deskripsi = $request->deskripsi;
+        }
+
+
+
+        if ($berita->save()) {
+            return redirect('/berita')->with('message-success', 'Data berhasi di ubah!');
+        } else {
+            return redirect()->back()->with('message-danger', 'Data gagal di ubah!');
+        }
+    }
+
+
+
     public function create(Request $request)
     {
         // return $request;

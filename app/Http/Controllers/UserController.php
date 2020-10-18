@@ -18,6 +18,12 @@ class UserController extends Controller
         return view('user.user', ['users' => $users]);
     }
 
+    public function pengunduran()
+    {
+        $users = User::where('pengunduran', '1')->paginate(5);
+        return view('user.userpengunduran', ['users' => $users]);
+    }
+
     public function adduser()
     {
         $users = User::all();
@@ -31,8 +37,15 @@ class UserController extends Controller
         $level = Level::pluck('nama_level', 'id');
 
         $user = User::find($id);
+        $collection = collect([
+            ['id' => '1', 'name' => 'belum diproses'],
+            ['id' => '2', 'name' => 'aktif'],
+            ['id' => '3', 'name' => 'tidak aktif'],
+        ]);
 
-        return view('user.editUser', ['user' => $user, 'level' => $level]);
+        $plucked = $collection->pluck('name', 'name');
+
+        return view('user.editUser', ['status' => $plucked, 'user' => $user, 'level' => $level]);
     }
 
     public function update(Request $request, $id)
@@ -42,10 +55,8 @@ class UserController extends Controller
 
         $user = User::find($id);
         $level = Level::pluck('nama_level', 'id');
-        if ($request->password != $request->syncpassword) {
-            return redirect()->back()->withErrors($errors);;
-            return view('user.editUser', ['user' => $user, 'level' => $level])->with('error', 'Password tidak sama');
-        } else if ($request->password == '') {
+
+        if ($request->password == '') {
             $user->update($request->except('password'));
         } else {
             $pass =  Hash::make($request->password);
@@ -75,5 +86,12 @@ class UserController extends Controller
         $user = User::find($id);
         $user->delete($user);
         return redirect('/users')->with('sukses', 'Data berhasil dihapus!');
+    }
+
+    public function pengunduranAproved($id)
+    {
+        $user = User::find($id);
+        $user->delete($user);
+        return redirect('users/pengunduran')->with('sukses', 'Data berhasil dihapus!');
     }
 }

@@ -22,6 +22,15 @@
             </p>
           </a>
         </li>
+
+        <li class="nav-item has-treeview">
+          <a href="/users/pengunduran" class="nav-link">
+            <i class="nav-icon fas fa-user"></i>
+            <p>
+              Data Pengunduran
+            </p>
+          </a>
+        </li>
         <li class="nav-item has-treeview">
           <a href="/berita" class="nav-link">
             <i class="nav-icon fas fa-info"></i>

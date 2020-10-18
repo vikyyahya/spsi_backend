@@ -38,6 +38,20 @@ class StrukturController extends Controller
         return redirect('/struktur')->with('sukses', 'Data Berhasil Di Simpan!');
     }
 
+    public function update(Request $request, $id)
+    {
+        // return $request;
+        $request->validate([
+            'nama' => 'required',
+            'jabatan' => 'required',
+        ]);
+        $s = Struktur::find($id);
+        $s->nama = $request->nama;
+        $s->jabatan = $request->jabatan;
+        $s->save();
+        return redirect('/struktur')->with('sukses', 'Data Berhasil Di Ubah!');
+    }
+
 
     public function delete($id)
     {
