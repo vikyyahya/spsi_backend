@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Kegiatan;
+use App\Berita;
+use App\User;
+
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +27,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard.dashboard');
+        $user = User::all();
+        $user = count($user);
+        $berita = Berita::all();
+        $berita = count($berita);
+        $kegiatan = Kegiatan::all();
+        $kegiatan = count($kegiatan);
+        return view('dashboard.dashboard', ['user' => $user, 'kegiatan' => $kegiatan, 'berita' => $berita]);
     }
 }
