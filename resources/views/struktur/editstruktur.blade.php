@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-md-12">
-        <form action="/createstruktur" method="POST" enctype="multipart/form-data">
+        <form action="/updatestruktur" method="POST" enctype="multipart/form-data">
 
             @csrf
 
@@ -28,7 +28,7 @@
 
                     <div class="form-group">
                         <label>Jabatan</label>
-                        <input type="text" name="jabatan" placeholder="" class="form-control">
+                        <input type="text" value="{{$struktur->jabatan}}" name="jabatan" placeholder="" class="form-control">
                     </div>
 
 

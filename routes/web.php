@@ -47,3 +47,4 @@ Route::get('/tambahstruktur', 'StrukturController@tambah_struktur');
 Route::post('/createstruktur', 'StrukturController@create');
 Route::get('/struktur/{id}/delete', 'StrukturController@delete');
 Route::get('/editstruktur/{id}', 'StrukturController@editStruktur');
+Route::get('/editstruktur/{id}', 'StrukturController@editStruktur');
