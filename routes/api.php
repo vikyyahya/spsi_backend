@@ -27,5 +27,5 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::get('/pengundurandiri', 'API\ProfileController@pengunduran');
     Route::post('/update-profil', 'API\ProfileController@updateprofile');
     Route::get('/get-kegiatan', 'API\KegiatanController@kegiatan');
-    Route::get('/get-struktur', 'API\StrukturController@index');
+    Route::get('/get-struktur', 'API\ProfileController@struktur');
 });

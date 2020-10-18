@@ -10,7 +10,7 @@
 
 			<div class="card" style="">
 				<div class="card-header">
-					<h3 class="card-title">Edit User</h3>
+					<h3 class="card-title">Edit Anggota</h3>
 				</div>
 
 				<div class="card-body">
@@ -68,7 +68,7 @@
 
 					<div class="form-group">
 						<label>Tanggal Lahir</label>
-						<input type="date" name="npwp" value="{{$user->tanggal_lahir}}" placeholder="" class="form-control" required autofocus>
+						<input type="date" name="npwp" value="{{$user->tanggal_lahir}}" placeholder="{{$user->tanggal_lahir}}" class="form-control" required autofocus>
 					</div>
 
 					<div class="form-group">

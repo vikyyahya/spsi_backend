@@ -60,4 +60,10 @@ class BeritaController extends Controller
         // ]);
         // return redirect('/berita')->with('sukses', 'Data Berhasil Di Upload!');
     }
+    public function delete($id)
+    {
+        $user = Berita::find($id);
+        $user->delete($user);
+        return redirect('/berita')->with('sukses', 'Data berhasil dihapus!');
+    }
 }

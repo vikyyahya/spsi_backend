@@ -44,6 +44,7 @@
                 <tr>
                     <th class="text-center">No</th>
                     <th class="text-center">Nama</th>
+                    <th class="text-center">Email</th>
                     <th class="text-center">Nik</th>
                     <th class="text-center">Status</th>
                     <th class="text-center">Plant</th>
@@ -53,6 +54,7 @@
                     <th class="text-center">Jenis kelamin</th>
                     <th class="text-center">Agama</th>
                     <th class="text-center">Alamat</th>
+                    <th class="text-center">Status</th>
                     <th class="text-center" width="8%">Action</th>
                 </tr>
             </thead>
@@ -61,6 +63,7 @@
                 <tr>
                     <td>{{ ($users->currentpage()-1) * $users->perpage() + $loop->index + 1 }}</td>
                     <td>{{$s->name}}</td>
+                    <td>{{$s->email}}</td>
                     <td>{{$s->nik}}</td>
                     <td>{{$s->status}}</td>
                     <td>{{$s->plant ?? '' }}</td>
@@ -70,6 +73,22 @@
                     <td>{{$s->jenis_kelamin}}</td>
                     <td>{{$s->agama}}</td>
                     <td>{{$s->alamat}}</td>
+                    @if($s->status == 'belum diproses')
+                    <td>
+                        <p class="text-danger"> {{$s->status}} </p>
+                    </td>
+
+                    @elseif($s->status == 'aktif')
+                    <td>
+                        <p class="text-success"> {{$s->status}} </p>
+                    </td>
+
+                    @else
+                    <td>
+                        <p class="text-warning"> {{$s->status}} </p>
+                    </td>
+
+                    @endif
                     <td>
                         <div class="btn-group">
 

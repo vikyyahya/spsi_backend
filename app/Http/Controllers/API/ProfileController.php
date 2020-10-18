@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use App\Struktur;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 
@@ -20,10 +21,22 @@ class ProfileController extends Controller
         return response(['user' => $user, 'success' => true, 'code' => 200]);
     }
 
+    public function struktur(Request $request)
+    {
+        // $user = User::find($request->id);
+        $user = Auth::user();
+        $s = Struktur::all();
+
+        return response(['struktur' => $s, 'success' => true, 'code' => 200]);
+    }
+
     public function pengunduran(Request $request)
     {
         // $user = User::find($request->id);
         $user = Auth::user();
+        $user = User::find($user->id);
+        $user->pengunduran = '1';
+        $user->save();
 
         return response(['user' => $user, 'success' => true, 'code' => 200]);
     }
@@ -42,12 +55,13 @@ class ProfileController extends Controller
             'jenis_kelamin' => 'required',
             'agama' => 'required',
             'alamat' => 'required',
-            'email' => 'email|required|unique:users',
             'password' => 'required',
         ]);
         if ($validatedData->fails()) {
             return response()->json(['error' => $validatedData->errors()], 401);
         }
+        $user = User::find($user->id);
+        // return $user;
         $user->name = $request['name'];
         $user->nik = $request['nik'];
         $user->plant = $request['plant'];

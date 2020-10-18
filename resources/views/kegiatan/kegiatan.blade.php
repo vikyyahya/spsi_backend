@@ -22,7 +22,7 @@
 
 
 
-<a href="#" class="btn btn-primary ml-3">
+<a href="/tambahkegiatan" class="btn btn-primary ml-3">
     <i class="fa fa-plus nav-icon"></i>
 </a>
 
@@ -57,11 +57,11 @@
 
                     <td>
                         <div class="btn-group">
-                            <a href="/edituser/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip" data-placement="bottom" title="Edit">
+                            <a href="/editkegiatan/{{$s->id}}" class="btn btn-warning  btn-sm" data-toggle="tootip" data-placement="bottom" title="Edit">
                                 <i class="fa fa-edit nav-icon"></i>
                             </a>
 
-                            <a onClick="return confirm('Yakin ingin menghapus data?')" href="/user/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
+                            <a onClick="return confirm('Yakin ingin menghapus data?')" href="/kegiatan/{{$s->id}}/delete" class="btn btn btn-danger btn-sm">
                                 <i class="fa fa-trash nav-icon"></i>
                             </a>
 
