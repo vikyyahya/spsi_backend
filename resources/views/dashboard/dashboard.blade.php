@@ -48,7 +48,7 @@
             <div class="inner">
               <h3>{{$berita}}</h3>
 
-              <p>Berita</p>
+              <p>Informasi</p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
