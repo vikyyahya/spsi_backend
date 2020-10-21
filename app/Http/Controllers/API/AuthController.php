@@ -72,6 +72,9 @@ class AuthController extends Controller
         $user = auth()->user();
         $user->api_token = $accessToken;
         $user->save();
+        if ($user->status == "tidak aktif") {
+            return response(['message' => 'User tidak aktif']);
+        }
         return response(['user' => auth()->user(), 'success' => true, 'code' => 200, 'access_token' => $accessToken]);
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Level;
 use Illuminate\Support\Facades\Hash;
+use Barryvdh\DomPDF\Facade as PDF;
 
 
 class UserController extends Controller
@@ -93,5 +94,15 @@ class UserController extends Controller
         $user = User::find($id);
         $user->delete($user);
         return redirect('users/pengunduran')->with('sukses', 'Data berhasil dihapus!');
+    }
+    public function print($id)
+    {
+        $users = User::find($id);
+        $pdf = PDF::loadview('report.reportuser', ['user' => $users]);
+        $pdf->save(storage_path() . '/uniquename.pdf');
+        return $pdf->stream();
+
+        // return $users;
+        // return (new UserReport($users))->download('users.xlsx');
     }
 }

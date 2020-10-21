@@ -27,6 +27,7 @@ Route::get('/edituser/{id}', 'UserController@editUser');
 Route::post('/upadateuser/{id}', 'UserController@update');
 Route::post('/createuser', 'UserController@create');
 Route::get('/user/{id}/delete', 'UserController@delete');
+Route::get('/print-user/{id}', 'UserController@print');
 Route::get('/userpengunduran/{id}/delete', 'UserController@pengunduranAproved');
 
 //berita
