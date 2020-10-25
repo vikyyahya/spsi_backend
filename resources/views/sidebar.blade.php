@@ -18,7 +18,7 @@
           <a href="/users" class="nav-link">
             <i class="nav-icon fas fa-users"></i>
             <p>
-              MASTER USER
+              DATA ANGGOTA
             </p>
           </a>
         </li>
@@ -27,7 +27,7 @@
           <a href="/users/pengunduran" class="nav-link">
             <i class="nav-icon fas fa-user"></i>
             <p>
-              Data Pengunduran
+              PENGUNDURAN
             </p>
           </a>
         </li>
@@ -35,7 +35,7 @@
           <a href="/berita" class="nav-link">
             <i class="nav-icon fas fa-info"></i>
             <p>
-              MASTER BERITA
+              INFORMASI TERKINI
             </p>
           </a>
         </li>
@@ -44,7 +44,7 @@
           <a href="/kegiatan" class="nav-link">
             <i class="nav-icon fas fa-stream"></i>
             <p>
-              MASTER KEGIATAN
+              DATA KEGIATAN
             </p>
           </a>
         </li>

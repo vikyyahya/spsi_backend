@@ -15,7 +15,7 @@ class UserController extends Controller
 
     public function user()
     {
-        $users = User::paginate(5);
+        $users = User::orderBy('id', 'DESC')->paginate(5);
         return view('user.user', ['users' => $users]);
     }
 
@@ -80,7 +80,7 @@ class UserController extends Controller
         $data['password'] = Hash::make($data['password']);
         // return $request;
         User::create($data);
-        return redirect('/users')->with('sukses', 'Data Berhasil Di Input!');
+        return redirect('/users')->with('sukses', 'Data Berhasil Di Simpan!');
     }
     public function delete($id)
     {

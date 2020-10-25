@@ -24,18 +24,13 @@
 <br />
 
 
-
-<a href="/adduser" class="btn btn-primary ml-3">
-    <i class="fa fa-plus nav-icon"></i>
-</a>
-
 <br />
 <br />
 
 <div class="card m-3" style="border-top: 2px solid">
 
     <div class="card-header ">
-        <h4>User</h4>
+        <h4>Data Pengunduran</h4>
     </div>
 
     <div class="card-body">
